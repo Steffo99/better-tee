@@ -16,6 +16,6 @@ public class PencilColorFromButtonColor : MonoBehaviour
 
     public void OnClick()
     {
-        pencil.color = image.color;
+        pencil.selectedColor = image.color;
     }
 }
