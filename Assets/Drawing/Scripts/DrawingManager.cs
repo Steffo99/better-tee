@@ -89,12 +89,12 @@ public class DrawingManager : MonoBehaviour
         ActStart();
     }
 
-    void ActStart() {
+    protected void ActStart() {
         timer.TimerStart();
         drawableFrame.locked = false;
     }
 
-    void ActEnd(object sender, EventArgs e) {
+    protected void ActEnd(object sender, EventArgs e) {
         drawableFrame.locked = true;
         png = drawableFrame.ToPNG();
     }

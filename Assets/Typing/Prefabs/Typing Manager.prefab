@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2942172269146964315
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2942172269146964316}
+  - component: {fileID: 2942172269146964317}
+  m_Layer: 0
+  m_Name: Typing Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2942172269146964316
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2942172269146964315}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2942172269146964317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2942172269146964315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dbc4b750b147b5419efe58851f05145, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jsonString: 
+  settings:
+    timeLimit: 99
+    actName: Untitled
+    actDescription: This Act is missing a description.
+  actNamePrefab: {fileID: 5201592901269269097, guid: 303cf7d85a1269245a58347705a275b0,
+    type: 3}
+  actDescriptionPrefab: {fileID: 7083582236406838683, guid: 13cfb8f4345bdcb459f2dd90ac554850,
+    type: 3}
+  timerPrefab: {fileID: 8049216009855113645, guid: 2ecb10bfea7885e40ad4340fa7eaa265,
+    type: 3}
+  inputFieldPrefab: {fileID: 549540992562893914, guid: 90fda1ed55ff7b741bfe9dbc5f9003d8,
+    type: 3}
+  submitPrefab: {fileID: 2074529559843646469, guid: c55ca4759b513f34f823478efced5cb4,
+    type: 3}
+  submittedCountPrefab: {fileID: 3217623250842909506, guid: ea05f9737b8776c4faf05bf53c37b4b9,
+    type: 3}
+  texts: []

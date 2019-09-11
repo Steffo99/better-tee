@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 5dbc4b750b147b5419efe58851f05145
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - actNamePrefab: {fileID: 5201592901269269097, guid: 303cf7d85a1269245a58347705a275b0,
+      type: 3}
+  - actDescriptionPrefab: {fileID: 7083582236406838683, guid: 13cfb8f4345bdcb459f2dd90ac554850,
+      type: 3}
+  - timerPrefab: {fileID: 8049216009855113645, guid: 2ecb10bfea7885e40ad4340fa7eaa265,
+      type: 3}
+  - inputFieldPrefab: {fileID: 549540992562893914, guid: 90fda1ed55ff7b741bfe9dbc5f9003d8,
+      type: 3}
+  - submitPrefab: {fileID: 2074529559843646469, guid: c55ca4759b513f34f823478efced5cb4,
+      type: 3}
+  - submittedCountPrefab: {fileID: 3217623250842909506, guid: ea05f9737b8776c4faf05bf53c37b4b9,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
