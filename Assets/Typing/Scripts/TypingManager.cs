@@ -82,11 +82,13 @@ public class TypingManager : MonoBehaviour
     protected void ActStart() {
         timer.TimerStart();
         eventSystem.SetSelectedGameObject(inputField.gameObject);
+        inputField.interactable = true;
+        submit.GetComponent<Button>().interactable = true;
     }
 
     protected void ActEnd(object sender, EventArgs e) {
-        inputField.enabled = false;
-        submit.enabled = false;
+        inputField.interactable = false;
+        submit.GetComponent<Button>().interactable = false;
     }
 
     public void SubmitText(string text) {
