@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6807415978649219551}
   - component: {fileID: 6807415978649219550}
   - component: {fileID: 6807415978649219545}
-  - component: {fileID: 6807415978649219544}
   - component: {fileID: 6807415977000239074}
   m_Layer: 0
   m_Name: Drawable Frame
@@ -98,20 +97,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resolution: {x: 500, y: 500}
   startingColor: {r: 0, g: 0, b: 0, a: 0}
-  texture: {fileID: 0}
-  sprite: {fileID: 0}
---- !u!114 &6807415978649219544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6807415978649219547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21d58fc36c2296c4787f0492c99a5d2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  locked: 0
+  hasChanged: 0
 --- !u!114 &6807415977000239074
 MonoBehaviour:
   m_ObjectHideFlags: 0

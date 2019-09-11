@@ -8,9 +8,13 @@ public class DrawableFrame : MonoBehaviour
     public Vector2Int resolution;
     public Color startingColor = Color.white;
 
+    [Header("State")]
+    public bool locked = false;
+    public bool hasChanged = false;
+
     [Header("References")]
-    public Texture2D texture = null;
-    public Sprite sprite = null;
+    protected Texture2D texture = null;
+    protected Sprite sprite = null;
 
     private SpriteRenderer spriteRenderer;
 
@@ -43,6 +47,23 @@ public class DrawableFrame : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         sprite = Sprite.Create(texture, new Rect(0, 0, resolution.x, resolution.y), new Vector2(0.5f, 0.5f), resolution.x);
         spriteRenderer.sprite = sprite;
+    }
+
+    public Color[] GetPixels() {
+        return texture.GetPixels();
+    }
+
+    public void SetPixels(Color[] colors) {
+        if(!locked) {
+            texture.SetPixels(colors);
+            hasChanged = true;
+        }
+    }
+
+    protected void Update() {
+        if(hasChanged) {
+            texture.Apply();
+        }
     }
     
     protected void OnDrawGizmos() 

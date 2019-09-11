@@ -43,6 +43,9 @@ public class DrawingManager : MonoBehaviour
                 Debug.LogWarning("Invalid settings json string, using defaults.");
             }
         }
+        else {
+            Debug.Log(JsonUtility.ToJson(settings));
+        }
         
         canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
 
@@ -77,6 +80,9 @@ public class DrawingManager : MonoBehaviour
         actDescription.text = settings.actDescription;
 
         timer = Instantiate(timerPrefab, canvas.transform).GetComponent<Timer>();
-        timer.StartTimer(settings.timeLimit);
+        timer.TimerSet(settings.timeLimit);
+
+        //TODO: replace with a countdown or something
+        timer.TimerStart();
     }
 }

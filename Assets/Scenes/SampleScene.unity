@@ -435,5 +435,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3241962964773812269, guid: 4fd713402edcc1c43b82d4d86a713998,
+        type: 3}
+      propertyPath: jsonString
+      value: '{"startingColor":{"r":1.0,"g":1.0,"b":1.0,"a":1.0},"palette":[{"r":1.0,"g":0.0,"b":0.0,"a":1.0},{"r":1.0,"g":1.0,"b":0.0,"a":1.0},{"r":0.0,"g":1.0,"b":0.0,"a":1.0},{"r":0.0,"g":1.0,"b":1.0,"a":1.0},{"r":0.0,"g":0.0,"b":1.0,"a":1.0},{"r":1.0,"g":0.0,"b":1.0,"a":1.0},{"r":1.0,"g":1.0,"b":1.0,"a":1.0}],"timeLimit":99.0,"actName":"RAINBOWS","actDescription":"Disegna
+        qualcosa con questi colori superluminosi!"}'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fd713402edcc1c43b82d4d86a713998, type: 3}

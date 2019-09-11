@@ -12,8 +12,8 @@ public class PencilTool : DrawTool
     private Vector2Int? previousPixel;
     private Vector2Int? pixel;
 
-    protected Vector2Int? HoveredPixel() {
-        Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    protected Vector2Int? GetPixelAtScreenPosition(Vector2 screenPosition) {
+        Vector2 worldPoint = Camera.main.ScreenToWorldPoint(screenPosition);
         if(frame.Bounds.Contains(worldPoint)) {
             Vector2 normalized = Rect.PointToNormalized(frame.Bounds, worldPoint);
             Vector2Int result = new Vector2Int(Mathf.FloorToInt(normalized.x * frame.resolution.x), Mathf.FloorToInt(normalized.y * frame.resolution.y));
@@ -24,13 +24,33 @@ public class PencilTool : DrawTool
 
     protected override void Start() {
         base.Start();
-        colors = frame.texture.GetPixels();
+        colors = frame.GetPixels();
+
+        Input.simulateMouseWithTouches = false;
     }
 
     protected void Update() {
+        bool hasChanged = false;
+
+        // Touch
+        foreach(Touch t in Input.touches) {
+            pixel = GetPixelAtScreenPosition(t.position);
+            previousPixel = GetPixelAtScreenPosition(t.position - t.deltaPosition);
+            if(pixel.HasValue) {
+                if(previousPixel.HasValue) {
+                    DrawBresenhamsThickLine(pixel.Value, previousPixel.Value, size, selectedColor);
+                }
+                else {
+                    DrawFilledCircle(pixel.Value, size, selectedColor);
+                }
+            }
+            hasChanged = true;
+        }
+
+        // Mouse
         previousPixel = pixel;
         if(Input.GetMouseButton(0)) {
-            pixel = HoveredPixel();
+            pixel = GetPixelAtScreenPosition(Input.mousePosition);
             if(pixel.HasValue) {
                 if(previousPixel.HasValue) {
                     DrawBresenhamsThickLine(previousPixel.Value, pixel.Value, size, selectedColor);
@@ -39,10 +59,14 @@ public class PencilTool : DrawTool
                     DrawFilledCircle(pixel.Value, size, selectedColor);
                 }
             }
-            Apply();
+            hasChanged = true;
         }
         else {
             pixel = null;
+        }
+
+        if(hasChanged) {
+            frame.SetPixels(colors);
         }
     }
 
@@ -124,7 +148,5 @@ public class PencilTool : DrawTool
     }
 
     protected void Apply() {
-        frame.texture.SetPixels(colors);
-        frame.texture.Apply();
     }
 }

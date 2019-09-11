@@ -8,8 +8,9 @@ public class Timer : MonoBehaviour
 {
     public float startingTime = 0f;
     public float time = 0f;
-    public bool isTriggered = false;
-    public bool isRunning = false;    
+
+    private bool isTriggered = false;
+    private bool isRunning = false;    
 
     protected void Update() {
         if(time >= 0f) {
@@ -18,25 +19,40 @@ public class Timer : MonoBehaviour
             }
         }
         else {
-            time = 0f;
             if(isTriggered) {
-                OnTimeOut(EventArgs.Empty);
+                _OnTimeOut(EventArgs.Empty);
+                time = 0f;
                 isTriggered = false;
+                isRunning = false;
             }
         }
     }
 
-    public void StartTimer(float startingTime) {
+    public void TimerSet(float startingTime) {
         isTriggered = true;
-        isRunning = true;
+        isRunning = false;
         this.startingTime = startingTime;
         time = startingTime;        
     }
 
-    public event EventHandler TimeOut;
-    protected virtual void OnTimeOut(EventArgs e)
+    public void TimerStart() {
+        isRunning = true;
+    }
+
+    public void TimerPause() {
+        isRunning = false;
+    }
+
+    public void TimerCancel() {
+        time = 0f;
+        isTriggered = false;
+        isRunning = false;
+    }
+
+    public event EventHandler OnTimeOut;
+    protected virtual void _OnTimeOut(EventArgs e)
     {
-        EventHandler handler = TimeOut;
+        EventHandler handler = OnTimeOut;
         handler?.Invoke(this, e);
     }
 }
