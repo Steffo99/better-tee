@@ -36,6 +36,9 @@ public class DrawingManager : MonoBehaviour
     protected Text actDescription;
     protected Timer timer;
 
+    [Header("Results")]
+    public byte[] png = null;
+
     void Start() {
         if(jsonString != "") {
             JsonUtility.FromJsonOverwrite(jsonString, settings);
@@ -81,8 +84,18 @@ public class DrawingManager : MonoBehaviour
 
         timer = Instantiate(timerPrefab, canvas.transform).GetComponent<Timer>();
         timer.TimerSet(settings.timeLimit);
+        timer.OnTimeOut += ActEnd;
 
-        //TODO: replace with a countdown or something
+        ActStart();
+    }
+
+    void ActStart() {
         timer.TimerStart();
+        drawableFrame.locked = false;
+    }
+
+    void ActEnd(object sender, EventArgs e) {
+        drawableFrame.locked = true;
+        png = drawableFrame.ToPNG();
     }
 }

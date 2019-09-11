@@ -302,6 +302,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!4 &781296762 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3241962964773812267, guid: 4fd713402edcc1c43b82d4d86a713998,
+    type: 3}
+  m_PrefabInstance: {fileID: 3241962965509540481}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1207901189
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,17 +374,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1832035424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1832035425}
+  m_Layer: 0
+  m_Name: Game Controller
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1832035425
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832035424}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 781296762}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3241962965509540481
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1832035425}
     m_Modifications:
     - target: {fileID: 3241962964773812264, guid: 4fd713402edcc1c43b82d4d86a713998,
         type: 3}
       propertyPath: m_Name
-      value: Drawing Manager
+      value: Drawing Controller
       objectReference: {fileID: 0}
     - target: {fileID: 3241962964773812267, guid: 4fd713402edcc1c43b82d4d86a713998,
         type: 3}
@@ -398,17 +435,17 @@ PrefabInstance:
     - target: {fileID: 3241962964773812267, guid: 4fd713402edcc1c43b82d4d86a713998,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3241962964773812267, guid: 4fd713402edcc1c43b82d4d86a713998,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3241962964773812267, guid: 4fd713402edcc1c43b82d4d86a713998,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3241962964773812267, guid: 4fd713402edcc1c43b82d4d86a713998,
         type: 3}
@@ -418,7 +455,7 @@ PrefabInstance:
     - target: {fileID: 3241962964773812267, guid: 4fd713402edcc1c43b82d4d86a713998,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3241962964773812267, guid: 4fd713402edcc1c43b82d4d86a713998,
         type: 3}
@@ -438,7 +475,7 @@ PrefabInstance:
     - target: {fileID: 3241962964773812269, guid: 4fd713402edcc1c43b82d4d86a713998,
         type: 3}
       propertyPath: jsonString
-      value: '{"startingColor":{"r":1.0,"g":1.0,"b":1.0,"a":1.0},"palette":[{"r":1.0,"g":0.0,"b":0.0,"a":1.0},{"r":1.0,"g":1.0,"b":0.0,"a":1.0},{"r":0.0,"g":1.0,"b":0.0,"a":1.0},{"r":0.0,"g":1.0,"b":1.0,"a":1.0},{"r":0.0,"g":0.0,"b":1.0,"a":1.0},{"r":1.0,"g":0.0,"b":1.0,"a":1.0},{"r":1.0,"g":1.0,"b":1.0,"a":1.0}],"timeLimit":99.0,"actName":"RAINBOWS","actDescription":"Disegna
+      value: '{"startingColor":{"r":1.0,"g":1.0,"b":1.0,"a":1.0},"palette":[{"r":1.0,"g":0.0,"b":0.0,"a":1.0},{"r":1.0,"g":1.0,"b":0.0,"a":1.0},{"r":0.0,"g":1.0,"b":0.0,"a":1.0},{"r":0.0,"g":1.0,"b":1.0,"a":1.0},{"r":0.0,"g":0.0,"b":1.0,"a":1.0},{"r":1.0,"g":0.0,"b":1.0,"a":1.0},{"r":1.0,"g":1.0,"b":1.0,"a":1.0}],"timeLimit":5.0,"actName":"RAINBOWS","actDescription":"Disegna
         qualcosa con questi colori superluminosi!"}'
       objectReference: {fileID: 0}
     m_RemovedComponents: []

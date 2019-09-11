@@ -15,8 +15,7 @@ public class DrawableFrame : MonoBehaviour
     [Header("References")]
     protected Texture2D texture = null;
     protected Sprite sprite = null;
-
-    private SpriteRenderer spriteRenderer;
+    protected SpriteRenderer spriteRenderer;
 
     public Rect Bounds {
         get {
@@ -58,6 +57,10 @@ public class DrawableFrame : MonoBehaviour
             texture.SetPixels(colors);
             hasChanged = true;
         }
+    }
+
+    public byte[] ToPNG() {
+        return texture.EncodeToPNG();
     }
 
     protected void Update() {
