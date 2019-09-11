@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PencilSizeFromSlider : MonoBehaviour
+public class RadiusSlider : MonoBehaviour
 {
     public PencilTool pencil;
 

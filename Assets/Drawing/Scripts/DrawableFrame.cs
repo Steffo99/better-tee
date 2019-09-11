@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class DrawableFrame : MonoBehaviour
 {
+    [Header("Configuration")]
     public Vector2Int resolution;
-    public Texture2D texture;
+    public Color startingColor = Color.white;
+
+    [Header("References")]
+    public Texture2D texture = null;
+    public Sprite sprite = null;
+
+    private SpriteRenderer spriteRenderer;
 
     public Rect Bounds {
         get {
@@ -25,6 +32,17 @@ public class DrawableFrame : MonoBehaviour
         else {
             texture.filterMode = FilterMode.Trilinear;
         }
+
+        Color[] colors = texture.GetPixels();
+        for(int i = 0; i < colors.Length; i++) {
+            colors[i] = startingColor;
+        }
+        texture.SetPixels(colors);
+        texture.Apply();
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        sprite = Sprite.Create(texture, new Rect(0, 0, resolution.x, resolution.y), new Vector2(0.5f, 0.5f), resolution.x);
+        spriteRenderer.sprite = sprite;
     }
     
     protected void OnDrawGizmos() 

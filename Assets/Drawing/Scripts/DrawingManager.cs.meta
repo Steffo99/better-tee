@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 0d10524dc2d96954e90c57e2eaf1fd10
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - drawableFramePrefab: {fileID: 6807415978649219547, guid: 3f791bed5834e114495d6160942e2463,
+      type: 3}
+  - paletteButtonPrefab: {fileID: 6296685147594998485, guid: b6078e3d1014e1d4abcb9fb07e6dac68,
+      type: 3}
+  - radiusSliderPrefab: {fileID: 262769963510312142, guid: ab003174e303481428457549f8ca0c3f,
+      type: 3}
+  - actNamePrefab: {fileID: 5201592901269269097, guid: 303cf7d85a1269245a58347705a275b0,
+      type: 3}
+  - actDescriptionPrefab: {fileID: 7083582236406838683, guid: 13cfb8f4345bdcb459f2dd90ac554850,
+      type: 3}
+  - timerPrefab: {fileID: 8049216009855113645, guid: 2ecb10bfea7885e40ad4340fa7eaa265,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
