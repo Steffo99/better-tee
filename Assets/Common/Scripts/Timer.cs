@@ -20,7 +20,7 @@ public class Timer : MonoBehaviour
         }
         else {
             if(isTriggered) {
-                _OnTimeOut(this, EventArgs.Empty);
+                OnTimeOut();
                 time = 0f;
                 isTriggered = false;
                 isRunning = false;
@@ -49,10 +49,5 @@ public class Timer : MonoBehaviour
         isRunning = false;
     }
 
-    public event EventHandler OnTimeOut;
-    protected virtual void _OnTimeOut(object sender, EventArgs e)
-    {
-        EventHandler handler = OnTimeOut;
-        handler?.Invoke(this, e);
-    }
+    public event Action OnTimeOut;
 }

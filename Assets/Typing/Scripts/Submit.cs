@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class Submit : MonoBehaviour
 {
     public InputField inputField;
-    public TypingManager typingManager;
+    public TypingController typingController;
 
     protected EventSystem eventSystem;
 
@@ -16,7 +16,7 @@ public class Submit : MonoBehaviour
     }
 
     public void OnClick() {
-        typingManager.SubmitText(inputField.text);
+        typingController.Submit(inputField.text);
         inputField.text = "";
         eventSystem.SetSelectedGameObject(inputField.gameObject);
     }
