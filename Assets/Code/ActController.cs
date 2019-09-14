@@ -28,6 +28,7 @@ public abstract class ActController : MonoBehaviour
 
     };
 
+    [Serializable]
     public class InvalidPhaseException : Exception {
         public readonly ActPhase currentPhase;
 
@@ -36,6 +37,7 @@ public abstract class ActController : MonoBehaviour
         }
     };
 
+    [Serializable]
     public class MissingSettingsException : Exception {};
 
     [Serializable]
@@ -84,6 +86,10 @@ public abstract class ActController : MonoBehaviour
             Debug.LogWarningFormat("ActCleanup() was called during {0}", Phase);
         }
         phase = ActPhase.CLEANUP;
+    }
+
+    protected virtual void Awake() {
+
     }
 
     protected virtual void Start() {

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2942172269146964316}
   - component: {fileID: 2942172269146964317}
   m_Layer: 0
-  m_Name: Typing Manager
+  m_Name: Typing Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,21 +43,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dbc4b750b147b5419efe58851f05145, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonString: 
   settings:
-    timeLimit: 99
-    actName: Untitled
-    actDescription: This Act is missing a description.
+    type: 
+  canvas: {fileID: 0}
+  eventSystem: {fileID: 0}
+  submissions: []
   actNamePrefab: {fileID: 5201592901269269097, guid: 303cf7d85a1269245a58347705a275b0,
     type: 3}
   actDescriptionPrefab: {fileID: 7083582236406838683, guid: 13cfb8f4345bdcb459f2dd90ac554850,
     type: 3}
   timerPrefab: {fileID: 8049216009855113645, guid: 2ecb10bfea7885e40ad4340fa7eaa265,
     type: 3}
-  inputFieldPrefab: {fileID: 549540992562893914, guid: 90fda1ed55ff7b741bfe9dbc5f9003d8,
+  submissionFieldPrefab: {fileID: 549540992562893914, guid: 90fda1ed55ff7b741bfe9dbc5f9003d8,
     type: 3}
   submitPrefab: {fileID: 2074529559843646469, guid: c55ca4759b513f34f823478efced5cb4,
     type: 3}
   submittedCountPrefab: {fileID: 3217623250842909506, guid: ea05f9737b8776c4faf05bf53c37b4b9,
     type: 3}
-  texts: []

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3241962964773812267}
   - component: {fileID: 3241962964773812269}
   m_Layer: 0
-  m_Name: Drawing Manager
+  m_Name: Drawing Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,13 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d10524dc2d96954e90c57e2eaf1fd10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonString: 
   settings:
-    startingColor: {r: 1, g: 1, b: 1, a: 1}
-    palette: []
-    timeLimit: 99
-    actName: Untitled
-    actDescription: This Act is missing a description.
+    type: 
+  canvas: {fileID: 0}
+  eventSystem: {fileID: 0}
   drawableFramePrefab: {fileID: 6807415978649219547, guid: 3f791bed5834e114495d6160942e2463,
     type: 3}
   paletteButtonPrefab: {fileID: 6296685147594998485, guid: b6078e3d1014e1d4abcb9fb07e6dac68,
@@ -60,5 +57,5 @@ MonoBehaviour:
     type: 3}
   actDescriptionPrefab: {fileID: 7083582236406838683, guid: 13cfb8f4345bdcb459f2dd90ac554850,
     type: 3}
-  timerPrefab: {fileID: 8049216009855113645, guid: 2ecb10bfea7885e40ad4340fa7eaa265,
+  actTimerPrefab: {fileID: 8049216009855113645, guid: 2ecb10bfea7885e40ad4340fa7eaa265,
     type: 3}

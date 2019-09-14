@@ -9,7 +9,7 @@ public class DrawableFrame : MonoBehaviour
     public Color startingColor = Color.white;
 
     [Header("State")]
-    public bool locked = false;
+    public bool interactable = false;
     public bool hasChanged = false;
 
     [Header("References")]
@@ -53,7 +53,7 @@ public class DrawableFrame : MonoBehaviour
     }
 
     public void SetPixels(Color[] colors) {
-        if(!locked) {
+        if(interactable) {
             texture.SetPixels(colors);
             hasChanged = true;
         }

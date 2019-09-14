@@ -30,14 +30,16 @@ public class DrawingController : ActController
         public float timeLimit = 99f;
         public string actName = "Untitled";
         public string actDescription = "This Act is missing a description.";
+        public string destinationPool = "default";
 
-        public DrawingSettings(Color startingColor, List<Color> palette, float timeLimit, string actName, string actDescription) {
+        public DrawingSettings(Color startingColor, List<Color> palette, float timeLimit, string actName, string actDescription, string destinationPool) {
             this.type = "Drawing";
             this.startingColor = startingColor;
             this.palette = palette;
             this.timeLimit = timeLimit;
             this.actName = actName;
             this.actDescription = actDescription;
+            this.destinationPool = destinationPool;
         }
     }
 
@@ -48,10 +50,6 @@ public class DrawingController : ActController
         public DrawingResults(byte[] pngBytes) {
             this.pngBytes = pngBytes;
         }
-    }
-
-    protected override void Start() {
-        base.Start();
     }
 
     public override void ActInit() {
@@ -105,7 +103,7 @@ public class DrawingController : ActController
         base.ActStart();
 
         //Unlock frame
-        drawableFrame.locked = false;
+        drawableFrame.interactable = false;
 
         //Start timer
         actTimer.OnTimeOut += new Action(ActEnd);
@@ -116,7 +114,7 @@ public class DrawingController : ActController
         base.ActEnd();
 
         //Lock frame
-        drawableFrame.locked = true;
+        drawableFrame.interactable = true;
 
         //Generate results
         results = new DrawingResults(drawableFrame.ToPNG());
