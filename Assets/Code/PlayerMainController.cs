@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class GameController : MonoBehaviour
+public class PlayerMainController : MonoBehaviour
 {
     [Header("TEST")]
     public string jsonData = "";
