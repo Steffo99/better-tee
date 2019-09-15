@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -31,15 +29,15 @@ public class PlayerMainController : MonoBehaviour
     };
 
     public void LoadAct(string jsonData) {
-        ActController.ActSettings unknownSettings = JsonUtility.FromJson<ActController.ActSettings>(jsonData);
+        ActSettings unknownSettings = JsonUtility.FromJson<ActSettings>(jsonData);
 
         if(unknownSettings.type == "Drawing") {
             currentAct = Instantiate(drawingControllerPrefab, transform).GetComponent<DrawingController>();
-            currentAct.settings = JsonUtility.FromJson<DrawingController.DrawingSettings>(jsonData);
+            currentAct.settings = JsonUtility.FromJson<DrawingSettings>(jsonData);
         }
         else if (unknownSettings.type == "Typing") {
             currentAct = Instantiate(typingControllerPrefab, transform).GetComponent<TypingController>();
-            currentAct.settings = JsonUtility.FromJson<TypingController.TypingSettings>(jsonData);
+            currentAct.settings = JsonUtility.FromJson<TypingSettings>(jsonData);
         }
         else {
             throw new InvalidJsonDataException(jsonData);

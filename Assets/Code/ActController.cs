@@ -1,7 +1,5 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 
@@ -19,16 +17,6 @@ public abstract class ActController : MonoBehaviour
     public EventSystem eventSystem = null;
 
     [Serializable]
-    public class ActSettings {
-        public string type;
-    }
-
-    [Serializable]
-    public class ActResults {
-
-    };
-
-    [Serializable]
     public class InvalidPhaseException : Exception {
         public readonly ActPhase currentPhase;
 
@@ -39,15 +27,6 @@ public abstract class ActController : MonoBehaviour
 
     [Serializable]
     public class MissingSettingsException : Exception {};
-
-    [Serializable]
-    public enum ActPhase {
-        NONE,
-        INIT,
-        START,
-        END,
-        CLEANUP
-    }
 
     public ActPhase Phase { get; }
 
