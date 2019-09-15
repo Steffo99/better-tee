@@ -1,17 +1,10 @@
 ﻿using System;
 using UnityEngine;
+using Mirror;
 
 
 public class PlayerMainController : MonoBehaviour
 {
-    [Header("TEST")]
-    public string jsonData = "";
-    
-    protected void Start() {
-        Debug.Log("Testing ActInit with public jsonData...");
-        LoadAct(jsonData);
-    }
-
     [Header("Objects")]
     public ActController currentAct;
 
@@ -20,27 +13,39 @@ public class PlayerMainController : MonoBehaviour
     public GameObject typingControllerPrefab;
 
     [Serializable]
-    public class InvalidJsonDataException : Exception {
-        public readonly string jsonData;
+    public class InvalidActTypeException : Exception {
+        public readonly string actType;
 
-        public InvalidJsonDataException(string jsonData) {
-            this.jsonData = jsonData;
+        public InvalidActTypeException(string actType) {
+            this.actType = actType;
         }
     };
 
-    public void LoadAct(string jsonData) {
-        ActSettings unknownSettings = JsonUtility.FromJson<ActSettings>(jsonData);
-
-        if(unknownSettings.type == "Drawing") {
+    public void LoadAct(ActSettings settings) {
+        if(settings.type == "Drawing") {
             currentAct = Instantiate(drawingControllerPrefab, transform).GetComponent<DrawingController>();
-            currentAct.settings = JsonUtility.FromJson<DrawingSettings>(jsonData);
         }
-        else if (unknownSettings.type == "Typing") {
+        else if (settings.type == "Typing") {
             currentAct = Instantiate(typingControllerPrefab, transform).GetComponent<TypingController>();
-            currentAct.settings = JsonUtility.FromJson<TypingSettings>(jsonData);
         }
-        else {
-            throw new InvalidJsonDataException(jsonData);
-        }
+        else throw new InvalidActTypeException(settings.type);
+        currentAct.settings = settings;
     }
+
+    public void ConnectToServer(string address) {
+        NetworkClient.Connect(address);
+        NetworkClient.RegisterHandler<NetMessages.ConnectionSuccessfulResponse>(OnConnectionSuccessful);
+        NetworkClient.RegisterHandler<NetMessages.GameStartMessage>(OnGameStart);
+        NetworkClient.RegisterHandler<NetMessages.ActSettingsMessage>(OnActSettings);
+        NetworkClient.RegisterHandler<NetMessages.ActEndNotification>(OnActEnd);
+    }
+
+    public void OnConnectionSuccessful(NetworkConnection connection, NetMessages.ConnectionSuccessfulResponse message) {}
+    public void OnGameStart(NetworkConnection connection, NetMessages.GameStartMessage message) {}
+    public void OnActEnd(NetworkConnection connection, NetMessages.ActEndNotification message) {}
+    
+    public void OnActSettings(NetworkConnection connection, NetMessages.ActSettingsMessage message) {
+        LoadAct(message.settings);
+    }
+
 }

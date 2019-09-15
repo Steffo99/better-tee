@@ -23,12 +23,7 @@ namespace NetMessages {
 
     public class ConnectionSuccessfulResponse : MessageBase
     {
-        public string[] playersConnected;
-    }
-
-    public class NewPlayerConnectedNotification : MessageBase
-    {
-        public string playerName;
+        
     }
 
     public class GameStartMessage : MessageBase
@@ -44,5 +39,10 @@ namespace NetMessages {
     public class ActResultsMessage : MessageBase
     {
         public ActResults results;
+    }
+
+    public class ActEndNotification : MessageBase 
+    {
+
     }
 }
