@@ -5,8 +5,14 @@ using Mirror;
 
 public class PlayerMainController : MonoBehaviour
 {
+    [Header("WIP")]
+    public string address = "127.0.0.1:44444";
+    void Start() {
+        ConnectToServer(address);
+    }
+
     [Header("Objects")]
-    public ActController currentAct;
+    public ActController currentAct = null;
 
     [Header("Prefabs")]
     public GameObject drawingControllerPrefab;
@@ -34,18 +40,38 @@ public class PlayerMainController : MonoBehaviour
 
     public void ConnectToServer(string address) {
         NetworkClient.Connect(address);
-        NetworkClient.RegisterHandler<NetMessages.ConnectionSuccessfulResponse>(OnConnectionSuccessful);
-        NetworkClient.RegisterHandler<NetMessages.GameStartMessage>(OnGameStart);
-        NetworkClient.RegisterHandler<NetMessages.ActSettingsMessage>(OnActSettings);
-        NetworkClient.RegisterHandler<NetMessages.ActEndNotification>(OnActEnd);
+        NetworkClient.RegisterHandler<NetMessage.Connect.PlayerJoinSuccessful>(OnPlayerJoinSuccessful);
+        NetworkClient.RegisterHandler<NetMessage.Game.Settings>(OnGameSettings);
+        NetworkClient.RegisterHandler<NetMessage.Game.Start>(OnGameStart);
+        NetworkClient.RegisterHandler<NetMessage.Game.End>(OnGameEnd);
+        NetworkClient.RegisterHandler<NetMessage.Act.Init>(OnActInit);
+        NetworkClient.RegisterHandler<NetMessage.Act.Start>(OnActStart);
+        NetworkClient.RegisterHandler<NetMessage.Act.End>(OnActEnd);
+    }
+    
+    protected void OnPlayerJoinSuccessful(NetworkConnection connection, NetMessage.Connect.PlayerJoinSuccessful message) {}
+
+    protected void OnGameSettings(NetworkConnection connection, NetMessage.Game.Settings message) {}
+
+    protected void OnGameStart(NetworkConnection connection, NetMessage.Game.Start message) {}
+
+    protected void OnGameEnd(NetworkConnection connection, NetMessage.Game.End message) {}
+
+    protected void OnActInit(NetworkConnection connection, NetMessage.Act.Init message) {
+        LoadAct(message.settings);
+        currentAct.ActInit();
     }
 
-    public void OnConnectionSuccessful(NetworkConnection connection, NetMessages.ConnectionSuccessfulResponse message) {}
-    public void OnGameStart(NetworkConnection connection, NetMessages.GameStartMessage message) {}
-    public void OnActEnd(NetworkConnection connection, NetMessages.ActEndNotification message) {}
-    
-    public void OnActSettings(NetworkConnection connection, NetMessages.ActSettingsMessage message) {
-        LoadAct(message.settings);
+    protected void OnActStart(NetworkConnection connection, NetMessage.Act.Start message) {
+        currentAct.ActStart();
+    }
+
+    protected void OnActEnd(NetworkConnection connection, NetMessage.Act.End message) {
+        currentAct.ActEnd();
+        //SEND RESULTS HERE
+
+        //test this
+        Destroy(currentAct);
     }
 
 }

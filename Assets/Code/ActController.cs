@@ -35,6 +35,9 @@ public abstract class ActController : MonoBehaviour
     /// </summary>
     public virtual void ActInit() {
         phase = ActPhase.INIT;
+        
+        canvas = GameObject.FindGameObjectWithTag("Canvas")?.GetComponent<Canvas>();
+        eventSystem = GameObject.FindGameObjectWithTag("EventSystem")?.GetComponent<EventSystem>();
 
         if(settings == null) {
             throw new MissingSettingsException();
@@ -72,9 +75,7 @@ public abstract class ActController : MonoBehaviour
     }
 
     protected virtual void Start() {
-        canvas = GameObject.FindGameObjectWithTag("Canvas")?.GetComponent<Canvas>();
-        eventSystem = GameObject.FindGameObjectWithTag("EventSystem")?.GetComponent<EventSystem>();
-        ActInit();
+        
     }
 
     protected virtual void Update() {
