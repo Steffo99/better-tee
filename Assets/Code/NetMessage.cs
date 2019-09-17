@@ -1,4 +1,4 @@
-using Telepathy;
+using Mirror;
 
 
 namespace NetMessage 
