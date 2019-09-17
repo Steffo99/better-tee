@@ -14,7 +14,8 @@ public class ServerMainController : MonoBehaviour
     [Header("Constants")]
     public const int MAX_CONNECTIONS = 32;
 
-    public void ServerStart() {
+    public void StartServer() {
+        LogFilter.Debug = true;
         phase = GamePhase.LOBBY;
         NetworkServer.RegisterHandler<NetMessage.Connect.PlayerJoin>(OnPlayerJoin);
         NetworkServer.RegisterHandler<NetMessage.Connect.ViewerLink>(OnViewerLink);

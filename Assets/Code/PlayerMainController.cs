@@ -41,6 +41,7 @@ public class PlayerMainController : MonoBehaviour
     }
 
     public void ConnectToServer(string address, string playerName) {
+        LogFilter.Debug = true;
         NetworkClient.RegisterHandler<NetMessage.Connect.PlayerJoinSuccessful>(OnPlayerJoinSuccessful);
         NetworkClient.RegisterHandler<NetMessage.Game.Settings>(OnGameSettings);
         NetworkClient.RegisterHandler<NetMessage.Game.Start>(OnGameStart);
