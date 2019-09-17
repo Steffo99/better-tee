@@ -1,4 +1,4 @@
-using Mirror;
+using Telepathy;
 
 
 namespace NetMessage 
@@ -19,10 +19,6 @@ namespace NetMessage
         public class PlayerJoinSuccessful : MessageBase
         {
             public Player player;
-
-            public PlayerJoinSuccessful(Player player) {
-                this.player = player;
-            }
         }
 
         public class ViewerLink : MessageBase
@@ -33,10 +29,6 @@ namespace NetMessage
         public class ViewerLinkSuccessful : MessageBase 
         {
             public Viewer viewer;
-            
-            public ViewerLinkSuccessful(Viewer viewer) {
-                this.viewer = viewer;
-            }
         }
 
     }

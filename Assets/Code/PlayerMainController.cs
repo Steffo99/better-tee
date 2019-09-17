@@ -7,8 +7,10 @@ public class PlayerMainController : MonoBehaviour
 {
     [Header("WIP")]
     public string address = "127.0.0.1:44444";
+    public string playerName = "Steffo";
+
     void Start() {
-        ConnectToServer(address);
+        ConnectToServer(address, playerName);
     }
 
     [Header("Objects")]
@@ -38,8 +40,7 @@ public class PlayerMainController : MonoBehaviour
         currentAct.settings = settings;
     }
 
-    public void ConnectToServer(string address) {
-        NetworkClient.Connect(address);
+    public void ConnectToServer(string address, string playerName) {
         NetworkClient.RegisterHandler<NetMessage.Connect.PlayerJoinSuccessful>(OnPlayerJoinSuccessful);
         NetworkClient.RegisterHandler<NetMessage.Game.Settings>(OnGameSettings);
         NetworkClient.RegisterHandler<NetMessage.Game.Start>(OnGameStart);
@@ -47,6 +48,12 @@ public class PlayerMainController : MonoBehaviour
         NetworkClient.RegisterHandler<NetMessage.Act.Init>(OnActInit);
         NetworkClient.RegisterHandler<NetMessage.Act.Start>(OnActStart);
         NetworkClient.RegisterHandler<NetMessage.Act.End>(OnActEnd);
+        NetworkClient.Connect(address);
+
+        NetMessage.Connect.PlayerJoin playerJoin = new NetMessage.Connect.PlayerJoin {
+            playerName = playerName
+        };
+        NetworkClient.Send<NetMessage.Connect.PlayerJoin>(playerJoin);
     }
     
     protected void OnPlayerJoinSuccessful(NetworkConnection connection, NetMessage.Connect.PlayerJoinSuccessful message) {}
