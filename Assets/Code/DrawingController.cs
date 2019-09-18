@@ -43,7 +43,7 @@ public class DrawingController : ActController
 
         //Init PaletteButtons
         paletteButtons = new List<PaletteButton>();
-        for(int i = 0; i < drawingSettings.palette.Count; i++) {
+        for(int i = 0; i < drawingSettings.palette.Length; i++) {
             PaletteButton button = Instantiate(paletteButtonPrefab, canvas.transform).GetComponent<PaletteButton>();
             RectTransform btnTransform = button.GetComponent<RectTransform>();
             Image btnImage = button.GetComponent<Image>();

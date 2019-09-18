@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6762738775296509206
+--- !u!1 &4072765319379817587
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6762738775296509207}
-  - component: {fileID: 6762738775296509204}
-  - component: {fileID: 1254070857}
+  - component: {fileID: 4072765319379817585}
+  - component: {fileID: 4072765319379817586}
+  - component: {fileID: 4072765319379817584}
   m_Layer: 0
-  m_Name: Player Main Controller
-  m_TagString: GameController
+  m_Name: Server Main Controller
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6762738775296509207
+--- !u!4 &4072765319379817585
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6762738775296509206}
+  m_GameObject: {fileID: 4072765319379817587}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,33 +32,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6762738775296509204
+--- !u!114 &4072765319379817586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6762738775296509206}
+  m_GameObject: {fileID: 4072765319379817587}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30f1ce6b92701f848ad6e0c94ec374c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 89fe2c8d614a60e42b42812f5bdcfb7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  address: 127.0.0.1
-  playerName: Steffo
-  gamePassword: ASDF
-  currentAct: {fileID: 0}
-  drawingControllerPrefab: {fileID: 3241962964773812264, guid: 4fd713402edcc1c43b82d4d86a713998,
-    type: 3}
-  typingControllerPrefab: {fileID: 2942172269146964315, guid: d91131f9599079b4d96bfefa29d77a3a,
-    type: 3}
---- !u!114 &1254070857
+  password: ASDF
+  players: []
+  phase: 0
+--- !u!114 &4072765319379817584
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6762738775296509206}
+  m_GameObject: {fileID: 4072765319379817587}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7424c1070fad4ba2a7a96b02fbeb4bb, type: 3}

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class GameSettings
 {
     public string gameName;
-    public List<ActSettings> acts;
+    public ActSettings[] acts;
     public int minimumPlayers = 0;
     public int maximumPlayers = 8;
 }

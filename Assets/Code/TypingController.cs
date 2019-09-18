@@ -84,7 +84,7 @@ public class TypingController : ActController
         submit.GetComponent<Button>().interactable = false;
 
         //Create results
-        results = new TypingResults(submissions);
+        results = new TypingResults(submissions.ToArray());
     }
 
     public override void ActCleanup() {

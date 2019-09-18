@@ -6,8 +6,9 @@ using Mirror;
 public class PlayerMainController : MonoBehaviour
 {
     [Header("WIP")]
-    public string address = "127.0.0.1:44444";
+    public string address = "127.0.0.1";
     public string playerName = "Steffo";
+    public string gamePassword = "ASDF";
 
     void Start() {
         ConnectToServer(address, playerName);
@@ -42,6 +43,8 @@ public class PlayerMainController : MonoBehaviour
 
     public void ConnectToServer(string address, string playerName) {
         LogFilter.Debug = true;
+        Transport.activeTransport = GetComponent<TelepathyTransport>();
+        NetworkClient.RegisterHandler<ConnectMessage>(OnConnect);
         NetworkClient.RegisterHandler<NetMessage.Connect.PlayerJoinSuccessful>(OnPlayerJoinSuccessful);
         NetworkClient.RegisterHandler<NetMessage.Game.Settings>(OnGameSettings);
         NetworkClient.RegisterHandler<NetMessage.Game.Start>(OnGameStart);
@@ -50,11 +53,15 @@ public class PlayerMainController : MonoBehaviour
         NetworkClient.RegisterHandler<NetMessage.Act.Start>(OnActStart);
         NetworkClient.RegisterHandler<NetMessage.Act.End>(OnActEnd);
         NetworkClient.Connect(address);
+    }
 
+    public void OnConnect(NetworkConnection connection, ConnectMessage message) {
+        Debug.Log("Sending NetMessage.Connect.PlayerJoin");
         NetMessage.Connect.PlayerJoin playerJoin = new NetMessage.Connect.PlayerJoin {
-            playerName = playerName
+            playerName = playerName,
+            gamePassword = gamePassword
         };
-        NetworkClient.Send<NetMessage.Connect.PlayerJoin>(playerJoin);
+        connection.Send<NetMessage.Connect.PlayerJoin>(playerJoin);
     }
     
     protected void OnPlayerJoinSuccessful(NetworkConnection connection, NetMessage.Connect.PlayerJoinSuccessful message) {}
