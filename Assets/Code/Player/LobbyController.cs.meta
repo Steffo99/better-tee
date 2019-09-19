@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: 0dfc4022dd0f23147b2b963c2750c36e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - canvas: {instanceID: 0}
+  - eventSystem: {instanceID: 0}
+  - lobbyText: {instanceID: 0}
+  - playersText: {instanceID: 0}
+  - viewersText: {instanceID: 0}
+  - playersList: {instanceID: 0}
+  - viewersList: {instanceID: 0}
+  - lobbyTextPrefab: {fileID: 6386469135376110178, guid: 745003c3bffcba6459448fbad7687f9f,
+      type: 3}
+  - playersTextPrefab: {fileID: 2701375965084900438, guid: 555a7eb2700e7ac4596020774a4450bb,
+      type: 3}
+  - viewersTextPrefab: {fileID: 5517075760296149523, guid: 17deacbc7a4a5fe458b491cfa6608d1f,
+      type: 3}
+  - playersListPrefab: {fileID: 8188877146660590661, guid: 84a62a0ae00165e418afb36de8439922,
+      type: 3}
+  - viewersListPrefab: {fileID: 7800282026214090873, guid: 03fa783d7d140f54cb9b3d03bbb1d9d8,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

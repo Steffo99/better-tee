@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6155809969824259580
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6155809969824259583}
+  - component: {fileID: 6155809969824259582}
+  m_Layer: 0
+  m_Name: Lobby Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6155809969824259583
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6155809969824259580}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6155809969824259582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6155809969824259580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dfc4022dd0f23147b2b963c2750c36e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  eventSystem: {fileID: 0}
+  lobbyText: {fileID: 0}
+  playersText: {fileID: 0}
+  viewersText: {fileID: 0}
+  playersList: {fileID: 0}
+  viewersList: {fileID: 0}
+  lobbyTextPrefab: {fileID: 6386469135376110178, guid: 745003c3bffcba6459448fbad7687f9f,
+    type: 3}
+  playersTextPrefab: {fileID: 2701375965084900438, guid: 555a7eb2700e7ac4596020774a4450bb,
+    type: 3}
+  viewersTextPrefab: {fileID: 5517075760296149523, guid: 17deacbc7a4a5fe458b491cfa6608d1f,
+    type: 3}
+  playersListPrefab: {fileID: 8188877146660590661, guid: 84a62a0ae00165e418afb36de8439922,
+    type: 3}
+  viewersListPrefab: {fileID: 7800282026214090873, guid: 03fa783d7d140f54cb9b3d03bbb1d9d8,
+    type: 3}

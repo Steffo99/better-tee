@@ -48,6 +48,9 @@ MonoBehaviour:
   playerName: Steffo
   gamePassword: ASDF
   currentAct: {fileID: 0}
+  lobbyController: {fileID: 0}
+  lobbyControllerPrefab: {fileID: 6155809969824259580, guid: b44ef03800892be43b5bb7033900174c,
+    type: 3}
   drawingControllerPrefab: {fileID: 3241962964773812264, guid: 4fd713402edcc1c43b82d4d86a713998,
     type: 3}
   typingControllerPrefab: {fileID: 2942172269146964315, guid: d91131f9599079b4d96bfefa29d77a3a,

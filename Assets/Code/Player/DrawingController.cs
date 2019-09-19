@@ -91,7 +91,9 @@ namespace BetterTee.Player
             drawableFrame.interactable = true;
 
             //Generate results
-            results = new DrawingResults(drawableFrame.ToPNG());
+            results = new DrawingResults {
+                pngBytes = drawableFrame.ToPNG()
+            };
         }
         
         public override void ActCleanup() {

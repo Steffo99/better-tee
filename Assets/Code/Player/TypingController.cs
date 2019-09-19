@@ -84,7 +84,9 @@ namespace BetterTee.Player {
             submit.GetComponent<Button>().interactable = false;
 
             //Create results
-            results = new TypingResults(submissions.ToArray());
+            results = new TypingResults {
+                submissions = submissions.ToArray()
+            };
         }
 
         public override void ActCleanup() {

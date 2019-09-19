@@ -19,10 +19,12 @@ namespace BetterTee.Player
 
         [Header("Objects")]
         public ActController currentAct = null;
+        public LobbyController lobbyController = null;
 
         [Header("Prefabs")]
-        public GameObject drawingControllerPrefab;
-        public GameObject typingControllerPrefab;
+        public GameObject lobbyControllerPrefab = null;
+        public GameObject drawingControllerPrefab = null;
+        public GameObject typingControllerPrefab = null;
 
         [Serializable]
         public class InvalidActTypeException : Exception {
@@ -48,7 +50,7 @@ namespace BetterTee.Player
             LogFilter.Debug = true;
             Transport.activeTransport = GetComponent<TelepathyTransport>();
             NetworkClient.RegisterHandler<ConnectMessage>(OnConnect);
-            NetworkClient.RegisterHandler<NetMsg.Server.PlayerJoined>(OnPlayerJoinSuccessful);
+            NetworkClient.RegisterHandler<NetMsg.Server.LobbyStatusChange>(OnLobbyStatusChange);
             NetworkClient.RegisterHandler<NetMsg.Server.LobbyEnd>(OnLobbyEnd);
             NetworkClient.RegisterHandler<NetMsg.Server.GameEnd>(OnGameEnd);
             NetworkClient.RegisterHandler<NetMsg.Server.ActInit>(OnActInit);
@@ -65,10 +67,12 @@ namespace BetterTee.Player
                 playerName = playerName,
                 gamePassword = gamePassword
             });
+
+            lobbyController = Instantiate(lobbyControllerPrefab, transform).GetComponent<LobbyController>();
         }
         
-        protected void OnPlayerJoinSuccessful(NetworkConnection connection, NetMsg.Server.PlayerJoined message) {
-
+        protected void OnLobbyStatusChange(NetworkConnection connection, NetMsg.Server.LobbyStatusChange message) {
+            lobbyController.OnLobbyStatusChange(message.players, message.viewers);
         }
 
         protected void OnLobbyEnd(NetworkConnection connection, NetMsg.Server.LobbyEnd message) {}

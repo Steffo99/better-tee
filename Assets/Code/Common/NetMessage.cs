@@ -8,6 +8,9 @@ namespace BetterTee.NetMsg
         namespace Error {
             public class InvalidPassword : MessageBase {}
             public class GameAlreadyStarted : MessageBase {}
+            public class MaxPlayersCapReached : MessageBase {}
+            public class NotEnoughPlayers : MessageBase {}
+            public class NoSettings : MessageBase {}
         }
 
         public class LobbyStatusChange : MessageBase {
@@ -43,7 +46,7 @@ namespace BetterTee.NetMsg
             public string gamePassword;
         }
 
-        public class ActResults : MessageBase
+        public class ActResultsMsg : MessageBase
         {
             public ActResults results;
         }
@@ -61,5 +64,7 @@ namespace BetterTee.NetMsg
         {
             public GameSettings settings;
         }
+
+        public class GameStart : MessageBase {}
     }
 }
