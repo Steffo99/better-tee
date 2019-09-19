@@ -1,7 +1,0 @@
-{
-    "type": "Typing",
-    "actName": "Sample Typing Act",
-    "actDescription": "This is a sample act that should be able to be loaded as a TypingSettings instance.",
-    "timeLimit": 66.6,
-    "destinationPool": "sample"
-}
