@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 namespace BetterTee.Viewer 
 {
 
-    public class ActController 
+    public class ActViewer
     {
         [Header("Settings")]
         public ActSettings settings = null;

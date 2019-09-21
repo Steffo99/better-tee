@@ -3,7 +3,12 @@ guid: 7de9e5b69cd5a9c4796053227593c096
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - lobbyController: {instanceID: 0}
+  - lobbyControllerPrefab: {fileID: 7830222156937957713, guid: a28b59fa0c0a2e24683c587d5638b099,
+      type: 3}
+  - drawingViewerPrefab: {instanceID: 0}
+  - typingViewerPrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
