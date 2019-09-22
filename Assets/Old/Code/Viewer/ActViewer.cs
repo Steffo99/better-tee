@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 namespace BetterTee.Viewer 
 {
 
-    public abstract class ActViewer
+    public abstract class ActViewer : MonoBehaviour
     {
         [Header("Settings")]
         public ActSettings settings = null;
