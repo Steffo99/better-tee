@@ -11,11 +11,13 @@ namespace BetterTee.NetMsg
             public class MaxPlayersCapReached : MessageBase {}
             public class NotEnoughPlayers : MessageBase {}
             public class NoSettings : MessageBase {}
+            public class MissingGameSettings : MessageBase {}
         }
 
         public class LobbyStatusChange : MessageBase {
             public ConnectedPlayerData[] players;
             public ConnectedViewerData[] viewers;
+            public bool canStart;
         }
 
         public class LobbyEnd : MessageBase 

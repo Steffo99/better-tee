@@ -37,6 +37,16 @@ namespace BetterTee.Viewer
         };
 
         public void LoadAct(ActSettings settings) {
+            if(settings.type == "Drawing") {
+                currentAct = Instantiate(drawingViewerPrefab).GetComponent<ActViewer>();
+                currentAct.settings = settings;
+                currentAct.ActInit();
+            }
+            else if(settings.type == "Typing") {
+                currentAct = Instantiate(typingViewerPrefab).GetComponent<ActViewer>();
+                currentAct.settings = settings;
+                currentAct.ActInit();
+            }
             throw new InvalidActTypeException(settings.type);
         }
 
@@ -61,7 +71,6 @@ namespace BetterTee.Viewer
         #region Network Events
 
         protected void OnConnect(NetworkConnection connection, ConnectMessage message) {
-            Debug.Log("Sending ViewerLink message");
             connection.Send<NetMsg.Viewer.ViewerLink>(new NetMsg.Viewer.ViewerLink {
                 viewerName = viewerName,
                 gamePassword = gamePassword
@@ -76,25 +85,26 @@ namespace BetterTee.Viewer
         }
         
         protected void OnLobbyStatusChange(NetworkConnection connection, NetMsg.Server.LobbyStatusChange message) {
-            lobbyController.OnLobbyStatusChange(message.players, message.viewers);
+            lobbyController.OnLobbyStatusChange(message.players, message.viewers, message.canStart);
         }
 
-        protected void OnLobbyEnd(NetworkConnection connection, NetMsg.Server.LobbyEnd message) {}
+        protected void OnLobbyEnd(NetworkConnection connection, NetMsg.Server.LobbyEnd message) {
+            Destroy(lobbyController.gameObject);
+        }
 
         protected void OnGameEnd(NetworkConnection connection, NetMsg.Server.GameEnd message) {}
 
         protected void OnActInit(NetworkConnection connection, NetMsg.Server.ActInit message) {
             LoadAct(message.settings);
-            //currentAct.ActInit();
         }
 
         protected void OnActStart(NetworkConnection connection, NetMsg.Server.ActStart message) {
-            //currentAct.ActStart();
+            currentAct.ActStart();
         }
 
         protected void OnActEnd(NetworkConnection connection, NetMsg.Server.ActEnd message) {
-            //currentAct.ActEnd();
-            //Destroy(currentAct);
+            currentAct.ActEnd();
+            Destroy(currentAct.gameObject);
         }
 
         #endregion
