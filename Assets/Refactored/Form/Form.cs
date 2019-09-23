@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace BetterTee.Form {
     public class Form : MonoBehaviour {
         private Dictionary<string, FormItem> registeredItems;
+        private Dictionary<string, FormEvent> registeredButtons;
 
         protected void Start() {
             registeredItems = new Dictionary<string, FormItem>();
@@ -27,6 +29,20 @@ namespace BetterTee.Form {
 
         public void SetValue(string name, dynamic value) {
             registeredItems[name].Value = value;
+        }
+
+        public void RegisterButton(FormEvent button) {
+            registeredButtons.Add(button.name, button);
+        }
+
+        public void UnregisterButton(string name) {
+            FormEvent button = registeredButtons[name];
+            button.UnsubscribeAll();
+            registeredButtons.Remove(name);
+        }
+
+        public void SubscribeTo(string name, Action<FormEvent> handler) {
+            registeredButtons[name].OnTrigger += handler;
         }
     }
 }
